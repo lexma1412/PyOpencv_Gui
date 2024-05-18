@@ -14,22 +14,45 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="Called_BlobDetection">
-      <property name="text">
-       <string>BlobDetection</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="Called_EdgeDetection">
-      <property name="text">
-       <string>EdgeDetection</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <widget class="QPushButton" name="Called_BlobDetection">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>67</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>BlobDetection</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Called_Video">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>249</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Video</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Called_EdgeDetection">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>158</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EdgeDetection</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

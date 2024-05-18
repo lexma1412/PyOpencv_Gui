@@ -32,7 +32,7 @@ class MyEdgdeDetection_Gui(QtWidgets.QWidget, Ui_EdgeDetection_Gui):
         self.Alg.RunCannyEdgeAlg()
 
     def KernelsizeChanged(self):
-        self.Alg.Kernelsize = self.Kernelsize_comboBox.currentText()
+        self.Alg.Kernelsize = int(self.Kernelsize_comboBox.currentText())
         self.Alg.RunCannyEdgeAlg()
 
     def L2normChanged(self):
