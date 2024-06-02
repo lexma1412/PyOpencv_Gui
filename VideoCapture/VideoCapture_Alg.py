@@ -20,6 +20,8 @@ class VideoCapture(QThread):
         self.fps=0
         self.cur_time=0
         self.prev_time=0
+        self.processAlg = VideoCaptureAlg
+        self.backSub = cv2.createBackgroundSubtractorMOG2()
         
     # Ref: https://github.com/god233012yamil/Streaming-IP-Cameras-Using-PyQt-and-OpenCV/blob/main/Streaming_IP_Camera_Using_PyQt_OpenCV.py#L145
     def run(self)-> None:
@@ -31,17 +33,32 @@ class VideoCapture(QThread):
                 ret, frame = self.Video.read()
                 # If frame is read correctly.
                 if ret:
+                    # Call function to process any algorithm
+                    #frame = self.FrameProcess(1, frame)
+                    #backSub = cv2.createBackgroundSubtractorMOG2()
+                    # Apply background subtraction
+                    fg_mask = self.backSub.apply(frame)
+                
+                    # Find contours
+                    contours, hierarchy = cv2.findContours(fg_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                    # print(contours)
+                    frame_ct = cv2.drawContours(frame, contours, -1, (0, 255, 0), 2)
+                    # apply global threshold to remove shadows
+                    retval, mask_thresh = cv2.threshold( fg_mask, 1, 255, cv2.THRESH_BINARY)
+                    # set the kernal
+                    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+                    # Apply erosion
+                    mask_eroded = cv2.morphologyEx(mask_thresh, cv2.MORPH_OPEN, kernel)
+                    min_contour_area = 100  # Define your minimum area threshold
+                    large_contours = [cnt for cnt in contours if cv2.contourArea(cnt) > min_contour_area]
+                    #frame_out = frame.copy()
+                    for cnt in large_contours:
+                        x, y, w, h = cv2.boundingRect(cnt)
+                        frame = cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 200), 3)
                     # Get the frame height, width and channels.
                     height, width, channels = frame.shape
                     # Calculate the number of bytes per line.
                     bytes_per_line = width * channels
-                    # convert the input image to grayscale
-                    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                    # apply thresholding to convert grayscale to binary image
-                    ret, binary_frame = cv2.threshold(gray_frame,70,255,0)
-                    # Find contours
-                    contours, hierarchy = cv2.findContours(binary_frame, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-                    frame = cv2.drawContours(frame, contours, -1, (0, 255, 0), 2)
                     # Convert image from BGR (cv2 default color format) to RGB (Qt default color format).
                     cv_rgb_image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                     #Convert the image to Qt format.
@@ -61,3 +78,32 @@ class VideoCapture(QThread):
                     print("Run Video Fail")
             # Pause state
             elif (self.VidState==3): break
+    
+    def FrameProcess(self, processAlg, frame):
+        if (processAlg == 1):
+           outframe = self.BackgroundSubtractObjectDetection(frame)
+        return outframe
+
+    def BackgroundSubtractObjectDetection(self, frame):
+        # Apply background subtraction
+        fg_mask = self.backSub.apply(frame)
+       
+        # Find contours
+        contours, hierarchy = cv2.findContours(fg_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        # print(contours)
+        frame_ct = cv2.drawContours(frame, contours, -1, (0, 255, 0), 2)
+        # apply global threshold to remove shadows
+        retval, mask_thresh = cv2.threshold( fg_mask, 180, 255, cv2.THRESH_BINARY)
+        # set the kernal
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
+        # Apply erosion
+        mask_eroded = cv2.morphologyEx(mask_thresh, cv2.MORPH_OPEN, kernel)
+        min_contour_area = 500  # Define your minimum area threshold
+        large_contours = [cnt for cnt in contours if cv2.contourArea(cnt) > min_contour_area]
+        frame_out = frame.copy()
+        for cnt in large_contours:
+            x, y, w, h = cv2.boundingRect(cnt)
+            frame_out = cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 200), 3)
+        return frame_out
+
+        

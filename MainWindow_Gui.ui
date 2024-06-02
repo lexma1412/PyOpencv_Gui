@@ -6,52 +6,104 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>625</width>
-    <height>397</height>
+    <width>647</width>
+    <height>427</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="Called_BlobDetection">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>67</y>
-      <width>93</width>
-      <height>28</height>
+      <x>10</x>
+      <y>170</y>
+      <width>271</width>
+      <height>141</height>
      </rect>
     </property>
-    <property name="text">
-     <string>BlobDetection</string>
+    <property name="title">
+     <string>Video processing</string>
     </property>
+    <widget class="QPushButton" name="Called_Video">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Video</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Called_ImageFilter_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>50</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Camrera</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QPushButton" name="Called_Video">
+   <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>249</y>
-      <width>93</width>
-      <height>28</height>
+      <x>0</x>
+      <y>10</y>
+      <width>281</width>
+      <height>141</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Video</string>
+    <property name="title">
+     <string>Image processing</string>
     </property>
-   </widget>
-   <widget class="QPushButton" name="Called_EdgeDetection">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>158</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>EdgeDetection</string>
-    </property>
+    <widget class="QPushButton" name="Called_EdgeDetection">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>EdgeDetection</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Called_BlobDetection">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>BlobDetection</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Called_ImageFilter">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>30</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Image Filter</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -59,7 +111,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>625</width>
+     <width>647</width>
      <height>26</height>
     </rect>
    </property>
