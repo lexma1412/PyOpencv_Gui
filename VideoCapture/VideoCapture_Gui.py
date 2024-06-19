@@ -17,7 +17,7 @@ class MyVideoCapture_Gui(QtWidgets.QWidget, Ui_VideoCapture_Gui):
         self.setupUi(self)
         self.FPS_label.setHidden(True)
         # Init algorithm object
-        self.Alg = VideoCapture("Highway.mp4", "BackgoundSubtract")
+        self.Alg = VideoCapture("Highway.mp4", 1)
         # Connect thread
         self.Alg.FrameUpdated.connect(lambda image: self.ShowVideo(image))
         # Connect UI
