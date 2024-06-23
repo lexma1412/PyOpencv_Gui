@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
-    <height>427</height>
+    <width>691</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -104,6 +104,19 @@
       <string>Image Filter</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="Called_Contour">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>80</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Contour</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -111,7 +124,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>647</width>
+     <width>691</width>
      <height>26</height>
     </rect>
    </property>

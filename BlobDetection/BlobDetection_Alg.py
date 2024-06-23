@@ -40,7 +40,7 @@ class BlobDetection:
         # Detect blobs
         keypoints = detector.detect(self.image)
         # Draw detected blobs as red circles
-        img_with_keypoints = cv2.drawKeypoints(self.image, keypoints, np.array([]), (0, 0, 255),
+        img_with_keypoints = cv2.drawKeypoints(self.image, keypoints, np.array([]), (0, 255, 255),
                                         cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         # Show the image with detected blobs
         cv2.imshow(self.cvnameWindow, img_with_keypoints)

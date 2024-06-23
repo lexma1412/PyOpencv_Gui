@@ -3,15 +3,15 @@ import cv2
 from matplotlib import pyplot as plt
 
 def main():
+    img = cv2.imread("test_img.png",cv2.IMREAD_GRAYSCALE)
+    out_img = cv2.Laplacian(img, cv2.CV_64F)
+    out_img = cv2.convertScaleAbs(out_img)
+    for e in out_img:
+        print(e)
     cv2.namedWindow("aaa")
-    cv2.waitKey(5)
+    cv2.imshow("aaa", out_img)
+    cv2.waitKey(0)
 
-    while True:
-        k = cv2.waitKey(0) & 0xFF
-        print(k)
-        if k == 27:
-            cv2.destroyAllWindows()
-            break
 
 if __name__ == "__main__":
     main()

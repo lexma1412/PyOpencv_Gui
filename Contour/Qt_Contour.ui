@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Contour_Gui</class>
+ <widget class="QWidget" name="Contour_Gui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>827</width>
+    <height>558</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QGroupBox" name="Contour_groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>271</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>GroupBox</string>
+   </property>
+   <widget class="QLabel" name="ContourMode_label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mode</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ContourMode_comboBox">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>40</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string>RETR_LIST</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>RETR_EXTERNAL</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>RETR_LIST</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>RETR_CCOMP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>RETR_TREE</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>RETR_FLOODFILL</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="ContourMethod_comboBox">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>70</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string>CHAIN_APPROX_SIMPLE</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>CHAIN_APPROX_NONE</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>CHAIN_APPROX_SIMPLE</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>CHAIN_APPROX_TC89_L1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>CHAIN_APPROX_TC89_KCOS</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="ContourMethod_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Approx method</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="FindContour_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>FindContour</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
